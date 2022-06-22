@@ -28,8 +28,9 @@ const nineBtn = document.createElement('div');
 
 /* Clear and Equals Buttons */
 const acBtn = document.createElement('div');
-const equalBtn = document.createElement('div');
+const negBtn = document.createElement('div');
 const remainderBtn = document.createElement('div');
+const equalBtn = document.createElement('div');
 const decBtn = document.createElement('div');
 
 
@@ -169,9 +170,20 @@ btnBox.appendChild(numsDiv);
 btnBox.appendChild(operatorsDiv);
 
 /* HTML Number Buttons Layout */
-
+numsDiv.appendChild(acBtn);
+numsDiv.appendChild(negBtn);
+numsDiv.appendChild(remainderBtn);
+numsDiv.appendChild(sevenBtn);
+numsDiv.appendChild(eightBtn);
+numsDiv.appendChild(nineBtn);
+numsDiv.appendChild(fourBtn);
+numsDiv.appendChild(fiveBtn);
+numsDiv.appendChild(sixBtn);
+numsDiv.appendChild(oneBtn);
+numsDiv.appendChild(twoBtn);
+numsDiv.appendChild(threeBtn);
 numsDiv.appendChild(zeroBtn);
-
+numsDiv.appendChild(decBtn);
 
 
 /* ------------------------------Functions------------------------------ */
