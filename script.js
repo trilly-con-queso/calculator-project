@@ -2,8 +2,9 @@
 
 /* Calculator Divs */
 const calDiv = document.createElement('div');
-const displayDiv = document.createElement('div');
+const topDiv = document.createElement('div');
 const display = document.createElement('display');
+const btmDiv = document.createElement('div');
 const btnDiv = document.createElement('div');
 const numsDiv = document.createElement('div');
 const operatorsDiv = document.createElement('div');
@@ -53,14 +54,14 @@ const numBtns = document.querySelectorAll('.numBtn');
 
 /* HTML IDs */
 calDiv.setAttribute('id', 'calBox');
-displayDiv.setAttribute('id', 'dispDiv');
-btnDiv.setAttribute('id', 'btnBox');
+topDiv.setAttribute('id', 'dispDiv');
+btmDiv.setAttribute('id', 'btnBox');
 display.setAttribute('id', 'disp');
 
 /* HTML Div Classes */
 calDiv.classList.add('calDivs');
-displayDiv.classList.add('calDivs');
-btnDiv.classList.add('calDivs');
+topDiv.classList.add('calDivs');
+btmDiv.classList.add('calDivs');
 
 /* HTML Number Button Classes */
 zeroBtn.classList.add('numBtn', 'btn');
@@ -127,36 +128,38 @@ calDiv.style.width = '375px';
 calDiv.style.display = 'flex';
 calDiv.style.flexDirection = 'column';
 
-displayDiv.style.flexGrow = '1';
-displayDiv.style.borderStyle = 'solid';
-displayDiv.style.display = 'flex';
-displayDiv.style.alignItems = 'center';
-displayDiv.style.justifyContent = 'center';
-displayDiv.style.padding = '0px 25px 0px 25px';
+topDiv.style.flexGrow = '1';
+topDiv.style.borderStyle = 'solid';
+topDiv.style.display = 'flex';
+topDiv.style.alignItems = 'center';
+topDiv.style.justifyContent = 'center';
+topDiv.style.padding = '0px 25px 0px 25px';
 
 display.style.minHeight = '90px';
 display.style.maxHeight = '90px'
-display.style.minWidth = '322px';
-display.style.maxWidth = '322px';
+display.style.minWidth = '324px';
+display.style.maxWidth = '324px';
 display.style.borderStyle = 'solid';
-display.style.flexGrow = '0';
-display.style.flexShrink = '1';
 
-btnDiv.style.flexGrow = '7';
-btnDiv.style.borderStyle = 'solid';
+
+btmDiv.style.flexGrow = '7';
+btmDiv.style.borderStyle = 'solid';
+btmDiv.style.display = 'flex';
+btmDiv.style.justifyContent = 'center';
+
 btnDiv.style.display = 'flex';
-btnDiv.style.flexDirection = 'colum';
+btnDiv.style.margin = '25px 25px 25px 25px'
+
 
 numsDiv.style.borderStyle = 'solid';
 numsDiv.style.minWidth = '235px';
 numsDiv.style.maxWidth = '235px';
-numsDiv.style.margin = '25px 5px 25px 25px';
+numsDiv.style.marginRight = '5px';
 numsDiv.style.display = 'flex';
 
 operatorsDiv.style.borderStyle = 'solid';
 operatorsDiv.style.minWidth = '79px';
 operatorsDiv.style.maxWidth = '79px';
-operatorsDiv.style.margin = '25px 25px 25px 0px'
 operatorsDiv.style.display = 'flex';
 operatorsDiv.style.flexDirection = 'column';
 
@@ -166,11 +169,12 @@ operatorsDiv.style.flexDirection = 'column';
 
 /* HTML Calculator Layout */
 body.appendChild(calDiv);
-calDiv.appendChild(displayDiv);
-calDiv.appendChild(btnDiv);
-displayDiv.appendChild(display);
-btnBox.appendChild(numsDiv);
-btnBox.appendChild(operatorsDiv);
+calDiv.appendChild(topDiv);
+calDiv.appendChild(btmDiv);
+topDiv.appendChild(display);
+btmDiv.appendChild(btnDiv);
+btnDiv.appendChild(numsDiv);
+btnDiv.appendChild(operatorsDiv);
 
 /* HTML Number Buttons Layout */
 numsDiv.appendChild(acBtn);
