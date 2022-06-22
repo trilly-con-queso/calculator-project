@@ -1,11 +1,10 @@
-/* Divs */
+/* Calculator Divs */
 const calDiv = document.createElement('div');
 const displayDiv = document.createElement('div');
 const display = document.createElement('display');
 const btnDiv = document.createElement('div');
 const numsDiv = document.createElement('div');
 const operatorsDiv = document.createElement('div');
-
 const btns = document.createElement('div');
 
 /* Operator Buttons */
@@ -30,12 +29,20 @@ const nineBtn = document.createElement('div');
 const acBtn = document.createElement('div');
 const equalBtn = document.createElement('div');
 
+
+/* --------------------------------------------------------------------- */
+
+
 /* Body and Page Selectors */
 const body = document.querySelector('#bod');
 const page = document.querySelector('#pg');
 
 /* Div Selectors */
 const calDivs = document.querySelectorAll('.calDivs');
+
+
+/* --------------------------------------------------------------------- */
+
 
 /* HTML IDs */
 calDiv.setAttribute('id', 'calBox');
@@ -49,6 +56,10 @@ calDiv.classList.add('calDivs');
 displayDiv.classList.add('calDivs');
 btnDiv.classList.add('calDivs');
 
+
+/* --------------------------------------------------------------------- */
+
+
 /* Page and Body Styles */
 page.style.height = '100%';
 body.style.height = '100%';
@@ -58,9 +69,7 @@ body.style.justifyContent = 'center';
 body.style.alignItems = 'center';
 body.style.flexDirection = 'column';
 
-
-
-/* calDivs Class Styling */
+/* calDivs Class Styling Function*/
 calDivs.forEach(calDiv => {
     calDiv.style.display = 'flex';
     calDiv.style.alignItems = 'center';
@@ -103,6 +112,10 @@ operatorsDiv.style.margin = '25px 25px 25px 0px'
 operatorsDiv.style.display = 'flex';
 operatorsDiv.style.flexWrap = 'true';
 
+
+/* --------------------------------------------------------------------- */
+
+
 /* HTML Layout */
 body.appendChild(calDiv);
 calDiv.appendChild(displayDiv);
@@ -112,7 +125,7 @@ btnBox.appendChild(numsDiv);
 btnBox.appendChild(operatorsDiv);
 
 
-
+/* --------------------------------------------------------------------- */
 
 
 /* Operator Selection Function for Calculator */
@@ -131,6 +144,8 @@ function operate(a, b, operator) {
             break;
     }
 };
+
+
 
 /* Operator Functions */
 let add = (a, b) => a + b;
