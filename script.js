@@ -25,7 +25,7 @@ const sevenBtn = document.createElement('div');
 const eightBtn = document.createElement('div');
 const nineBtn = document.createElement('div');
 
-/* Clear and Equals Function Buttons */
+/* Clear and Equals Buttons */
 const acBtn = document.createElement('div');
 const equalBtn = document.createElement('div');
 
@@ -50,14 +50,42 @@ displayDiv.setAttribute('id', 'dispDiv');
 btnDiv.setAttribute('id', 'btnBox');
 display.setAttribute('id', 'disp');
 
-/* HTML Classes */
-btns.classList.add('btn');
+/* HTML Div Classes */
 calDiv.classList.add('calDivs');
 displayDiv.classList.add('calDivs');
 btnDiv.classList.add('calDivs');
 
+/* HTML Number Button Classes */
+zeroBtn.classList.add('numBtn');
+oneBtn.classList.add('numBtn');
+twoBtn.classList.add('numBtn');
+threeBtn.classList.add('numBtn');
+fourBtn.classList.add('numBtn');
+fiveBtn.classList.add('numBtn');
+sixBtn.classList.add('numBtn');
+sevenBtn.classList.add('numBtn');
+eightBtn.classList.add('numBtn');
+nineBtn.classList.add('numBtn');
+
+/* HTML Operator Button Classes */
+addBtn.classList.add('opBtn');
+subBtn.classList.add('opBtn');
+multBtn.classList.add('opBtn');
+divBtn.classList.add('opBtn');
+
 
 /* --------------------------------------------------------------------- */
+
+
+/* calDivs Styling Function */
+calDivs.forEach(calDiv => {
+    calDiv.style.display = 'flex';
+    calDiv.style.alignItems = 'center';
+    calDiv.style.justifyContent = 'center';
+});
+
+/* Number Buttons Styling Function */
+
 
 
 /* Page and Body Styles */
@@ -68,13 +96,6 @@ body.style.display = 'flex';
 body.style.justifyContent = 'center';
 body.style.alignItems = 'center';
 body.style.flexDirection = 'column';
-
-/* calDivs Class Styling Function*/
-calDivs.forEach(calDiv => {
-    calDiv.style.display = 'flex';
-    calDiv.style.alignItems = 'center';
-    calDiv.style.justifyContent = 'center';
-});
 
 /* Div Styling */
 calDiv.style.height = '500px';
@@ -101,8 +122,8 @@ btnDiv.style.display = 'flex';
 btnDiv.style.flexDirection = 'colum';
 
 numsDiv.style.borderStyle = 'solid';
-numsDiv.style.flex = '2.5';
-numsDiv.style.margin = '25px';
+numsDiv.style.flex = '2';
+numsDiv.style.margin = '25px 5px 25px 25px';
 numsDiv.style.display = 'flex';
 numsDiv.style.flexDirection = 'column';
 
@@ -116,13 +137,18 @@ operatorsDiv.style.flexWrap = 'true';
 /* --------------------------------------------------------------------- */
 
 
-/* HTML Layout */
+/* HTML Calculator Layout */
 body.appendChild(calDiv);
 calDiv.appendChild(displayDiv);
 calDiv.appendChild(btnDiv);
 displayDiv.appendChild(display);
 btnBox.appendChild(numsDiv);
 btnBox.appendChild(operatorsDiv);
+
+/* HTML Number Buttons Layout */
+
+numsDiv.appendChild(zeroBtn);
+
 
 
 /* --------------------------------------------------------------------- */
