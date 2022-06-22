@@ -5,7 +5,6 @@ const display = document.createElement('display');
 const btnDiv = document.createElement('div');
 const numsDiv = document.createElement('div');
 const operatorsDiv = document.createElement('div');
-const btns = document.createElement('div');
 
 /* Operator Buttons */
 const addBtn = document.createElement('div');
@@ -28,6 +27,8 @@ const nineBtn = document.createElement('div');
 /* Clear and Equals Buttons */
 const acBtn = document.createElement('div');
 const equalBtn = document.createElement('div');
+const remainderBtn = document.createElement('div');
+const decBtn = document.createElement('div');
 
 
 /* --------------------------------------------------------------------- */
@@ -37,8 +38,12 @@ const equalBtn = document.createElement('div');
 const body = document.querySelector('#bod');
 const page = document.querySelector('#pg');
 
-/* Div Selectors */
+/* Calculator Div Selectors */
 const calDivs = document.querySelectorAll('.calDivs');
+
+/* Button Div Selectors */
+const btns = document.querySelectorAll('.btn');
+const numBtns = document.querySelectorAll('.numBtn');
 
 
 /* --------------------------------------------------------------------- */
@@ -56,23 +61,28 @@ displayDiv.classList.add('calDivs');
 btnDiv.classList.add('calDivs');
 
 /* HTML Number Button Classes */
-zeroBtn.classList.add('numBtn');
-oneBtn.classList.add('numBtn');
-twoBtn.classList.add('numBtn');
-threeBtn.classList.add('numBtn');
-fourBtn.classList.add('numBtn');
-fiveBtn.classList.add('numBtn');
-sixBtn.classList.add('numBtn');
-sevenBtn.classList.add('numBtn');
-eightBtn.classList.add('numBtn');
-nineBtn.classList.add('numBtn');
+zeroBtn.classList.add('numBtn', 'btn');
+oneBtn.classList.add('numBtn', 'btn');
+twoBtn.classList.add('numBtn', 'btn');
+threeBtn.classList.add('numBtn', 'btn');
+fourBtn.classList.add('numBtn', 'btn');
+fiveBtn.classList.add('numBtn', 'btn');
+sixBtn.classList.add('numBtn', 'btn');
+sevenBtn.classList.add('numBtn', 'btn');
+eightBtn.classList.add('numBtn', 'btn');
+nineBtn.classList.add('numBtn', 'btn');
 
 /* HTML Operator Button Classes */
-addBtn.classList.add('opBtn');
-subBtn.classList.add('opBtn');
-multBtn.classList.add('opBtn');
-divBtn.classList.add('opBtn');
+addBtn.classList.add('opBtn', 'btn');
+subBtn.classList.add('opBtn', 'btn');
+multBtn.classList.add('opBtn', 'btn');
+divBtn.classList.add('opBtn', 'btn');
 
+/* HTML Function Button Classes */
+acBtn.classList.add('funcBtn', 'btn');
+equalBtn.classList.add('funcBtn', 'btn');
+remainderBtn.classList.add('funcBtn', 'btn');
+decBtn.classList.add('funcBtn', 'btn');
 
 /* --------------------------------------------------------------------- */
 
@@ -84,8 +94,18 @@ calDivs.forEach(calDiv => {
     calDiv.style.justifyContent = 'center';
 });
 
-/* Number Buttons Styling Function */
+/* All Buttons Styling Function */
 
+
+/* Number Buttons Styling Function */
+numBtns.forEach(numBtn => {
+    numBtn.style.display = 'flex';
+    numBtn.style.alignItems = 'center';
+    numBtn.style.justifyContent = 'center';
+});
+
+
+/* --------------------------------------------------------------------- */
 
 
 /* Page and Body Styles */
