@@ -1,3 +1,5 @@
+/* ------------------------------Variables------------------------------ */
+
 /* Calculator Divs */
 const calDiv = document.createElement('div');
 const displayDiv = document.createElement('div');
@@ -31,7 +33,7 @@ const remainderBtn = document.createElement('div');
 const decBtn = document.createElement('div');
 
 
-/* --------------------------------------------------------------------- */
+/* ------------------------------Selectors------------------------------ */
 
 
 /* Body and Page Selectors */
@@ -46,8 +48,7 @@ const btns = document.querySelectorAll('.btn');
 const numBtns = document.querySelectorAll('.numBtn');
 
 
-/* --------------------------------------------------------------------- */
-
+/* ------------------------------IDs and Classes------------------------------ */
 
 /* HTML IDs */
 calDiv.setAttribute('id', 'calBox');
@@ -84,7 +85,7 @@ equalBtn.classList.add('funcBtn', 'btn');
 remainderBtn.classList.add('funcBtn', 'btn');
 decBtn.classList.add('funcBtn', 'btn');
 
-/* --------------------------------------------------------------------- */
+/* ------------------------------Class Styling Functions------------------------------ */
 
 
 /* calDivs Styling Function */
@@ -107,7 +108,7 @@ numBtns.forEach(numBtn => {
 });
 
 
-/* --------------------------------------------------------------------- */
+/* ------------------------------Individual Div Styles------------------------------ */
 
 
 /* Page and Body Styles */
@@ -156,7 +157,7 @@ operatorsDiv.style.display = 'flex';
 operatorsDiv.style.flexWrap = 'true';
 
 
-/* --------------------------------------------------------------------- */
+/* ------------------------------HTML Layout------------------------------ */
 
 
 /* HTML Calculator Layout */
@@ -173,7 +174,7 @@ numsDiv.appendChild(zeroBtn);
 
 
 
-/* --------------------------------------------------------------------- */
+/* ------------------------------Functions------------------------------ */
 
 
 /* Operator Selection Function for Calculator */
