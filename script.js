@@ -95,13 +95,15 @@ calDivs.forEach(calDiv => {
 });
 
 /* All Buttons Styling Function */
-
+btns.forEach(btn => {
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+});
 
 /* Number Buttons Styling Function */
 numBtns.forEach(numBtn => {
-    numBtn.style.display = 'flex';
-    numBtn.style.alignItems = 'center';
-    numBtn.style.justifyContent = 'center';
+
 });
 
 
