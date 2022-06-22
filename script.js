@@ -5,11 +5,27 @@ const btnDiv = document.createElement('div');
 const numsDiv = document.createElement('div');
 const operatorsDiv = document.createElement('div');
 const btns = document.createElement('div');
-const body = document.querySelector('#bod')
-const page = document.querySelector('#pg')
+const addBtn = document.createElement('div');
+const subBtn = document.createElement('div');
+const multBtn = document.createElement('div');
+const divBtn = document.createElement('div');
+const zeroBtn = document.createElement('div');
+const oneBtn = document.createElement('div');
+const twoBtn = document.createElement('div');
+const threeBtn = document.createElement('div');
+const fourBtn = document.createElement('div');
+const fiveBtn = document.createElement('div');
+const sixBtn = document.createElement('div');
+const sevenBtn = document.createElement('div');
+const eightBtn = document.createElement('div');
+const nineBtn = document.createElement('div');
+const acBtn = document.createElement('div');
+const equalBtn = document.createElement('div');
+const body = document.querySelector('#bod');
+const page = document.querySelector('#pg');
 
 calDiv.setAttribute('id', 'calBox');
-displayDiv.setAttribute('id', 'display');
+displayDiv.setAttribute('id', 'dispDiv');
 btnDiv.setAttribute('id', 'btnBox');
 display.setAttribute('id', 'disp');
 
@@ -45,17 +61,35 @@ displayDiv.style.borderStyle = 'solid';
 displayDiv.style.display = 'flex';
 displayDiv.style.alignItems = 'center';
 displayDiv.style.justifyContent = 'center';
-displayDiv.style.flexDirection = 'column';
 
-
-
-btnDiv.style.flexGrow = '7';
-btnDiv.style.borderStyle = 'solid';
+displayDiv.style.padding = '0px 25px 0px 25px';
 
 display.style.height = '90px';
 display.style.width = '325px';
 display.style.borderStyle = 'solid';
 display.style.flexGrow = '0';
+display.style.flexShrink = '1';
+
+
+btnDiv.style.flexGrow = '7';
+btnDiv.style.borderStyle = 'solid';
+btnDiv.style.display = 'flex';
+btnDiv.style.flexDirection = 'colum';
+
+numsDiv.style.borderStyle = 'solid';
+numsDiv.style.flex = '2.5';
+numsDiv.style.margin = '25px';
+numsDiv.style.display = 'flex';
+numsDiv.style.flexDirection = 'column';
+
+operatorsDiv.style.borderStyle = 'solid';
+operatorsDiv.style.flex = '1';
+operatorsDiv.style.margin = '25px 25px 25px 0px'
+operatorsDiv.style.display = 'flex';
+operatorsDiv.style.flexWrap = 'true';
+
+
+
 
 
 
@@ -65,6 +99,8 @@ body.appendChild(calDiv);
 calDiv.appendChild(displayDiv);
 calDiv.appendChild(btnDiv);
 displayDiv.appendChild(display);
+btnBox.appendChild(numsDiv);
+btnBox.appendChild(operatorsDiv);
 
 
 
