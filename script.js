@@ -69,10 +69,10 @@ addBtn.classList.add('btn', 'opBtn');
 subBtn.classList.add('btn', 'opBtn');
 multBtn.classList.add('btn', 'opBtn');
 divBtn.classList.add('btn', 'opBtn');
+equalBtn.classList.add('btn', 'opBtn');
 
 /* HTML Function Button Classes */
 acBtn.classList.add('btn', 'funcBtn');
-equalBtn.classList.add('btn', 'funcBtn');
 remainderBtn.classList.add('btn', 'funcBtn');
 decBtn.classList.add('btn', 'funcBtn');
 negBtn.classList.add('btn', 'funcBtn');
@@ -104,6 +104,11 @@ numsDiv.appendChild(threeBtn);
 numsDiv.appendChild(zeroBtn);
 numsDiv.appendChild(decBtn);
 
+operatorsDiv.appendChild(divBtn);
+operatorsDiv.appendChild(multBtn);
+operatorsDiv.appendChild(subBtn);
+operatorsDiv.appendChild(addBtn);
+operatorsDiv.appendChild(equalBtn);
 
 /* ------------------------------Div Selectors------------------------------ */
 
@@ -113,6 +118,38 @@ const calDivs = document.querySelectorAll('.calDivs');
 
 /* Button Div Selectors */
 const btns = document.querySelectorAll('.btn');
+const numBtns = document.querySelectorAll('.btn.numBtn');
+const funcBtns = document.querySelectorAll('.btn.funcBtn');
+const opBtns = document.querySelectorAll('.btn.opBtn');
+
+
+/* ------------------------------Class Styling Functions------------------------------ */
+
+/* All Buttons Styling Function */
+btns.forEach(btn => {
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.width = '76px';
+    btn.style.maxHeight = '65.875px';
+    btn.style.minHeight = '65.875px';
+    btn.style.borderStyle = 'solid';
+    btn.style.borderColor = '#190B28';
+    btn.style.borderRadius = '5px';
+});
+
+numBtns.forEach(numBtn => {
+    numBtn.style.backgroundColor = '#827875';
+});
+
+funcBtns.forEach(funcBtn => {
+    funcBtn.style.backgroundColor = '#E55381';
+});
+
+opBtns.forEach(opBtn => {
+    opBtn.style.backgroundColor = '#EFA9AE';
+})
+
 
 
 /* ------------------------------Individual Div Styles------------------------------ */
@@ -132,21 +169,25 @@ calDiv.style.height = '525px';
 calDiv.style.width = '375px';
 calDiv.style.display = 'flex';
 calDiv.style.flexDirection = 'column';
+calDiv.style.backgroundColor = '#413145';
 
 topDiv.style.flexGrow = '1';
 topDiv.style.borderStyle = 'solid';
 topDiv.style.display = 'flex';
 topDiv.style.alignItems = 'center';
 topDiv.style.justifyContent = 'center';
-topDiv.style.padding = '0px 25px 0px 25px';
+topDiv.style.padding = '25px 25px 25px 25px';
 
 display.style.minHeight = '90px';
 display.style.maxHeight = '90px'
 display.style.minWidth = '324px';
 display.style.maxWidth = '324px';
 display.style.borderStyle = 'solid';
+display.style.borderColor = '#190B28';
+display.style.borderWidth = '3px'
+display.style.backgroundColor = '#827875';
 
-
+btmDiv.style.backgroundColor = '#413145';
 btmDiv.style.flexGrow = '7';
 btmDiv.style.borderStyle = 'solid';
 btmDiv.style.display = 'flex';
@@ -156,35 +197,30 @@ btnDiv.style.display = 'flex';
 btnDiv.style.margin = '25px 25px 25px 25px'
 
 numsDiv.style.borderStyle = 'solid';
+numsDiv.style.borderRadius = '6px';
+numsDiv.style.borderColor = '#190B28';
+numsDiv.style.backgroundColor = '#190B28';
 numsDiv.style.minWidth = '237px';
 numsDiv.style.maxWidth = '237px';
-numsDiv.style.marginRight = '5px';
+numsDiv.style.marginRight = '10px';
 numsDiv.style.display = 'flex';
 numsDiv.style.flexWrap = 'wrap';
 numsDiv.style.alignContent = 'space-between';
 
 operatorsDiv.style.borderStyle = 'solid';
-operatorsDiv.style.minWidth = '81px';
-operatorsDiv.style.maxWidth = '81px';
+operatorsDiv.style.borderRadius = '6px';
+operatorsDiv.style.borderColor = '#190B28';
+operatorsDiv.style.backgroundColor = '#190B28';
+operatorsDiv.style.minWidth = '79px';
+operatorsDiv.style.maxWidth = '79px';
 operatorsDiv.style.display = 'flex';
 operatorsDiv.style.flexDirection = 'column';
+operatorsDiv.style.justifyContent = 'space-between';
 
-
-/* ------------------------------Class Styling Functions------------------------------ */
-
-/* All Buttons Styling Function */
-btns.forEach(btn => {
-    btn.style.display = 'flex';
-    btn.style.alignItems = 'center';
-    btn.style.justifyContent = 'center';
-    btn.style.minWidth = '76px';
-    btn.style.maxWidth = '76px';
-    btn.style.maxHeight = '65.875px';
-    btn.style.minHeight = '65.875px';
-    btn.style.borderStyle = 'solid';
-});
-
-/* Number Buttons Styling Function */
+/* Individual Button Styling */
+zeroBtn.style.flex = '2';
+decBtn.style.flex = '1';
+decBtn.style.maxWidth = '76px';
 
 
 /* ------------------------------Functions------------------------------ */
