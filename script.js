@@ -27,30 +27,19 @@ const sevenBtn = document.createElement('div');
 const eightBtn = document.createElement('div');
 const nineBtn = document.createElement('div');
 
-/* Clear and Equals Buttons */
+/* Function Buttons */
 const acBtn = document.createElement('div');
 const negBtn = document.createElement('div');
 const remainderBtn = document.createElement('div');
 const equalBtn = document.createElement('div');
 const decBtn = document.createElement('div');
 
-
-/* ------------------------------Selectors------------------------------ */
-
-
 /* Body and Page Selectors */
 const body = document.querySelector('#bod');
 const page = document.querySelector('#pg');
 
-/* Calculator Div Selectors */
-const calDivs = document.querySelectorAll('.calDivs');
-
-/* Button Div Selectors */
-const btns = document.querySelectorAll('.btn');
-const numBtns = document.querySelectorAll('.numBtn');
-
-
 /* ------------------------------IDs and Classes------------------------------ */
+
 
 /* HTML IDs */
 calDiv.setAttribute('id', 'calBox');
@@ -64,50 +53,66 @@ topDiv.classList.add('calDivs');
 btmDiv.classList.add('calDivs');
 
 /* HTML Number Button Classes */
-zeroBtn.classList.add('numBtn', 'btn');
-oneBtn.classList.add('numBtn', 'btn');
-twoBtn.classList.add('numBtn', 'btn');
-threeBtn.classList.add('numBtn', 'btn');
-fourBtn.classList.add('numBtn', 'btn');
-fiveBtn.classList.add('numBtn', 'btn');
-sixBtn.classList.add('numBtn', 'btn');
-sevenBtn.classList.add('numBtn', 'btn');
-eightBtn.classList.add('numBtn', 'btn');
-nineBtn.classList.add('numBtn', 'btn');
+zeroBtn.classList.add('btn', 'numBtn');
+oneBtn.classList.add('btn', 'numBtn');
+twoBtn.classList.add('btn', 'numBtn');
+threeBtn.classList.add('btn', 'numBtn');
+fourBtn.classList.add('btn', 'numBtn');
+fiveBtn.classList.add('btn', 'numBtn');
+sixBtn.classList.add('btn', 'numBtn');
+sevenBtn.classList.add('btn', 'numBtn');
+eightBtn.classList.add('btn', 'numBtn');
+nineBtn.classList.add('btn', 'numBtn');
 
 /* HTML Operator Button Classes */
-addBtn.classList.add('opBtn', 'btn');
-subBtn.classList.add('opBtn', 'btn');
-multBtn.classList.add('opBtn', 'btn');
-divBtn.classList.add('opBtn', 'btn');
+addBtn.classList.add('btn', 'opBtn');
+subBtn.classList.add('btn', 'opBtn');
+multBtn.classList.add('btn', 'opBtn');
+divBtn.classList.add('btn', 'opBtn');
 
 /* HTML Function Button Classes */
-acBtn.classList.add('funcBtn', 'btn');
-equalBtn.classList.add('funcBtn', 'btn');
-remainderBtn.classList.add('funcBtn', 'btn');
-decBtn.classList.add('funcBtn', 'btn');
+acBtn.classList.add('btn', 'funcBtn');
+equalBtn.classList.add('btn', 'funcBtn');
+remainderBtn.classList.add('btn', 'funcBtn');
+decBtn.classList.add('btn', 'funcBtn');
+negBtn.classList.add('btn', 'funcBtn');
+/* ------------------------------HTML Layout------------------------------ */
 
-/* ------------------------------Class Styling Functions------------------------------ */
+
+/* HTML Calculator Layout */
+body.appendChild(calDiv);
+calDiv.appendChild(topDiv);
+calDiv.appendChild(btmDiv);
+topDiv.appendChild(display);
+btmDiv.appendChild(btnDiv);
+btnDiv.appendChild(numsDiv);
+btnDiv.appendChild(operatorsDiv);
+
+/* HTML Number Buttons Layout */
+numsDiv.appendChild(acBtn);
+numsDiv.appendChild(negBtn);
+numsDiv.appendChild(remainderBtn);
+numsDiv.appendChild(sevenBtn);
+numsDiv.appendChild(eightBtn);
+numsDiv.appendChild(nineBtn);
+numsDiv.appendChild(fourBtn);
+numsDiv.appendChild(fiveBtn);
+numsDiv.appendChild(sixBtn);
+numsDiv.appendChild(oneBtn);
+numsDiv.appendChild(twoBtn);
+numsDiv.appendChild(threeBtn);
+numsDiv.appendChild(zeroBtn);
+numsDiv.appendChild(decBtn);
 
 
-/* calDivs Styling Function */
-calDivs.forEach(calDiv => {
-    calDiv.style.display = 'flex';
-    calDiv.style.alignItems = 'center';
-    calDiv.style.justifyContent = 'center';
-});
+/* ------------------------------Div Selectors------------------------------ */
 
-/* All Buttons Styling Function */
-btns.forEach(btn => {
-    btn.style.display = 'flex';
-    btn.style.alignItems = 'center';
-    btn.style.justifyContent = 'center';
-});
 
-/* Number Buttons Styling Function */
-numBtns.forEach(numBtn => {
+/* Calculator Div Selectors */
+const calDivs = document.querySelectorAll('.calDivs');
 
-});
+/* Button Div Selectors */
+const btns = document.querySelectorAll('.btn');
 
 
 /* ------------------------------Individual Div Styles------------------------------ */
@@ -150,47 +155,36 @@ btmDiv.style.justifyContent = 'center';
 btnDiv.style.display = 'flex';
 btnDiv.style.margin = '25px 25px 25px 25px'
 
-
 numsDiv.style.borderStyle = 'solid';
-numsDiv.style.minWidth = '235px';
-numsDiv.style.maxWidth = '235px';
+numsDiv.style.minWidth = '237px';
+numsDiv.style.maxWidth = '237px';
 numsDiv.style.marginRight = '5px';
 numsDiv.style.display = 'flex';
+numsDiv.style.flexWrap = 'wrap';
+numsDiv.style.alignContent = 'space-between';
 
 operatorsDiv.style.borderStyle = 'solid';
-operatorsDiv.style.minWidth = '79px';
-operatorsDiv.style.maxWidth = '79px';
+operatorsDiv.style.minWidth = '81px';
+operatorsDiv.style.maxWidth = '81px';
 operatorsDiv.style.display = 'flex';
 operatorsDiv.style.flexDirection = 'column';
 
 
-/* ------------------------------HTML Layout------------------------------ */
+/* ------------------------------Class Styling Functions------------------------------ */
 
+/* All Buttons Styling Function */
+btns.forEach(btn => {
+    btn.style.display = 'flex';
+    btn.style.alignItems = 'center';
+    btn.style.justifyContent = 'center';
+    btn.style.minWidth = '76px';
+    btn.style.maxWidth = '76px';
+    btn.style.maxHeight = '65.875px';
+    btn.style.minHeight = '65.875px';
+    btn.style.borderStyle = 'solid';
+});
 
-/* HTML Calculator Layout */
-body.appendChild(calDiv);
-calDiv.appendChild(topDiv);
-calDiv.appendChild(btmDiv);
-topDiv.appendChild(display);
-btmDiv.appendChild(btnDiv);
-btnDiv.appendChild(numsDiv);
-btnDiv.appendChild(operatorsDiv);
-
-/* HTML Number Buttons Layout */
-numsDiv.appendChild(acBtn);
-numsDiv.appendChild(negBtn);
-numsDiv.appendChild(remainderBtn);
-numsDiv.appendChild(sevenBtn);
-numsDiv.appendChild(eightBtn);
-numsDiv.appendChild(nineBtn);
-numsDiv.appendChild(fourBtn);
-numsDiv.appendChild(fiveBtn);
-numsDiv.appendChild(sixBtn);
-numsDiv.appendChild(oneBtn);
-numsDiv.appendChild(twoBtn);
-numsDiv.appendChild(threeBtn);
-numsDiv.appendChild(zeroBtn);
-numsDiv.appendChild(decBtn);
+/* Number Buttons Styling Function */
 
 
 /* ------------------------------Functions------------------------------ */
