@@ -169,7 +169,7 @@ calDiv.style.height = '525px';
 calDiv.style.width = '375px';
 calDiv.style.display = 'flex';
 calDiv.style.flexDirection = 'column';
-calDiv.style.backgroundColor = '#413145';
+
 
 topDiv.style.flexGrow = '1';
 topDiv.style.borderStyle = 'solid';
@@ -177,21 +177,26 @@ topDiv.style.display = 'flex';
 topDiv.style.alignItems = 'center';
 topDiv.style.justifyContent = 'center';
 topDiv.style.padding = '25px 25px 25px 25px';
+topDiv.style.borderRadius = '5px';
+topDiv.style.backgroundColor = '#413145';
 
 display.style.minHeight = '90px';
 display.style.maxHeight = '90px'
-display.style.minWidth = '324px';
-display.style.maxWidth = '324px';
+display.style.minWidth = '328px';
+display.style.maxWidth = '328px';
 display.style.borderStyle = 'solid';
 display.style.borderColor = '#190B28';
 display.style.borderWidth = '3px'
 display.style.backgroundColor = '#827875';
+display.style.borderRadius = '5px';
 
 btmDiv.style.backgroundColor = '#413145';
 btmDiv.style.flexGrow = '7';
 btmDiv.style.borderStyle = 'solid';
 btmDiv.style.display = 'flex';
 btmDiv.style.justifyContent = 'center';
+btmDiv.style.borderRadius = '5px';
+btmDiv.style.backgroundColor = '#413145';
 
 btnDiv.style.display = 'flex';
 btnDiv.style.margin = '25px 25px 25px 25px'
