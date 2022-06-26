@@ -136,6 +136,9 @@ btns.forEach(btn => {
     btn.style.borderStyle = 'solid';
     btn.style.borderColor = '#190B28';
     btn.style.borderRadius = '5px';
+    btn.style.fontFamily = 'San Francisco';
+    btn.style.fontWeight = '900';
+    btn.style.fontSize = '20px';
 });
 
 numBtns.forEach(numBtn => {
@@ -224,9 +227,30 @@ operatorsDiv.style.justifyContent = 'space-between';
 
 /* Individual Button Styling */
 zeroBtn.style.flex = '2';
+zeroBtn.textContent
 decBtn.style.flex = '1';
 decBtn.style.maxWidth = '76px';
 
+/* Individual Button Text */
+zeroBtn.textContent = '0';
+oneBtn.textContent = '1';
+twoBtn.textContent = '2';
+threeBtn.textContent = '3';
+fourBtn.textContent = '4';
+fiveBtn.textContent = '5';
+sixBtn.textContent = '6';
+sevenBtn.textContent = '7';
+eightBtn.textContent = '8';
+nineBtn.textContent = '9';
+decBtn.textContent = '.';
+acBtn.textContent = 'A/C';
+negBtn.textContent = '+/-';
+remainderBtn.textContent = '%';
+addBtn.textContent = '+';
+subBtn.textContent = '-';
+multBtn.textContent = 'x';
+divBtn.textContent = '/';
+equalBtn.textContent = '=';
 
 /* ------------------------------Functions------------------------------ */
 
