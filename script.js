@@ -1,5 +1,9 @@
 /* ------------------------------Variables------------------------------ */
 
+let dispText = '0';
+let firstOperand
+let secondOperand
+
 /* Calculator Divs */
 const calDiv = document.createElement('div');
 const topDiv = document.createElement('div');
@@ -138,20 +142,41 @@ btns.forEach(btn => {
     btn.style.borderRadius = '5px';
     btn.style.fontFamily = 'San Francisco';
     btn.style.fontWeight = '900';
-    btn.style.fontSize = '20px';
+    btn.style.fontSize = '20px';;
+    btn.addEventListener('mousedown', () => {
+        btn.style.backgroundColor = '#845A6B';
+    });
 });
 
 numBtns.forEach(numBtn => {
     numBtn.style.backgroundColor = '#827875';
+    numBtn.addEventListener('mouseup', () => {
+        numBtn.style.backgroundColor = '#827875';
+    });
+    numBtn.addEventListener('mouseout', () => {
+        numBtn.style.backgroundColor = '#827875';
+    });
 });
 
 funcBtns.forEach(funcBtn => {
     funcBtn.style.backgroundColor = '#E55381';
+    funcBtn.addEventListener('mouseup', () => {
+        funcBtn.style.backgroundColor = '#E55381';
+    });
+    funcBtn.addEventListener('mouseout', () => {
+        funcBtn.style.backgroundColor = '#E55381';
+    });
 });
 
 opBtns.forEach(opBtn => {
     opBtn.style.backgroundColor = '#EFA9AE';
-})
+    opBtn.addEventListener('mouseup', () => {
+        opBtn.style.backgroundColor = '#EFA9AE';
+    });
+    opBtn.addEventListener('mouseout', () => {
+        opBtn.style.backgroundColor = '#EFA9AE';
+    });
+});
 
 
 
@@ -252,8 +277,21 @@ multBtn.textContent = 'x';
 divBtn.textContent = '/';
 equalBtn.textContent = '=';
 
+/* Remove Selection Ability from Button Text */
+
+
 /* ------------------------------Functions------------------------------ */
 
+/* Onclick Functions */
+
+btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (dispText === '0') {
+            dispText = btn.textContent;
+        } else dispText += btn.textContent;
+        console.log(dispText);
+    });
+});
 
 /* Operator Selection Function for Calculator */
 function operate(a, b, operator) {
