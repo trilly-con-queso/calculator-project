@@ -1,13 +1,14 @@
 /* ------------------------------Variables------------------------------ */
 
 let dispText = '0';
-let firstOperand
-let secondOperand
+let firstOp;
+let secondOp;
 
 /* Calculator Divs */
 const calDiv = document.createElement('div');
 const topDiv = document.createElement('div');
 const display = document.createElement('display');
+const displayNums = document.createElement('div');
 const btmDiv = document.createElement('div');
 const btnDiv = document.createElement('div');
 const numsDiv = document.createElement('div');
@@ -73,7 +74,7 @@ addBtn.classList.add('btn', 'opBtn');
 subBtn.classList.add('btn', 'opBtn');
 multBtn.classList.add('btn', 'opBtn');
 divBtn.classList.add('btn', 'opBtn');
-equalBtn.classList.add('btn', 'opBtn');
+equalBtn.classList.add('btn');
 
 /* HTML Function Button Classes */
 acBtn.classList.add('btn', 'funcBtn');
@@ -88,6 +89,7 @@ body.appendChild(calDiv);
 calDiv.appendChild(topDiv);
 calDiv.appendChild(btmDiv);
 topDiv.appendChild(display);
+display.appendChild(displayNums);
 btmDiv.appendChild(btnDiv);
 btnDiv.appendChild(numsDiv);
 btnDiv.appendChild(operatorsDiv);
@@ -178,6 +180,16 @@ opBtns.forEach(opBtn => {
     });
 });
 
+equalBtn.style.backgroundColor = '#EFA9AE';
+
+equalBtn.addEventListener('mouseup', () => {
+    equalBtn.style.backgroundColor = '#EFA9AE';
+});
+
+equalBtn.addEventListener('mouseout', () => {
+    equalBtn.style.backgroundColor = '#EFA9AE';
+});
+
 
 
 /* ------------------------------Individual Div Styles------------------------------ */
@@ -198,7 +210,6 @@ calDiv.style.width = '375px';
 calDiv.style.display = 'flex';
 calDiv.style.flexDirection = 'column';
 
-
 topDiv.style.flexGrow = '1';
 topDiv.style.borderStyle = 'solid';
 topDiv.style.display = 'flex';
@@ -208,6 +219,7 @@ topDiv.style.padding = '25px 25px 25px 25px';
 topDiv.style.borderRadius = '5px';
 topDiv.style.backgroundColor = '#413145';
 
+display.style.display = 'flex';
 display.style.minHeight = '90px';
 display.style.maxHeight = '90px'
 display.style.minWidth = '328px';
@@ -217,6 +229,15 @@ display.style.borderColor = '#190B28';
 display.style.borderWidth = '3px'
 display.style.backgroundColor = '#827875';
 display.style.borderRadius = '5px';
+
+displayNums.style.flexGrow = '1';
+displayNums.style.display = 'flex';
+displayNums.style.justifyContent = 'flex-end';
+displayNums.style.alignItems = 'flex-end';
+displayNums.style.fontFamily = 'San Francisco';
+displayNums.style.fontSize = '60px';
+displayNums.style.marginRight = '10px';
+displayNums.style.marginLeft = '10px';
 
 btmDiv.style.backgroundColor = '#413145';
 btmDiv.style.flexGrow = '7';
@@ -276,20 +297,37 @@ subBtn.textContent = '-';
 multBtn.textContent = 'x';
 divBtn.textContent = '/';
 equalBtn.textContent = '=';
+displayNums.textContent = dispText;
 
-/* Remove Selection Ability from Button Text */
-
+/* Display Text Content */
 
 /* ------------------------------Functions------------------------------ */
 
 /* Onclick Functions */
 
-btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (dispText === '0') {
-            dispText = btn.textContent;
-        } else dispText += btn.textContent;
-        console.log(dispText);
+numBtns.forEach(numBtn => {
+    numBtn.addEventListener('click', () => {
+        if (dispText.length > 9) {
+            dispText = dispText.substring(1) + numBtn.textContent;
+        } else if (dispText === '0') {
+            dispText = numBtn.textContent;
+        } else dispText += numBtn.textContent;
+        displayNums.textContent = dispText;
+    });
+});
+
+opBtns.forEach(opBtn => {
+    opBtn.addEventListener('click', () => {
+        if (dispText == '0') {
+            dispText = '0'
+        } if (firstOp == null && dispText != null) {
+            firstOp = dispText;
+            numBtns.forEach(numBtn => {
+                numBtn.addEventListener(click, () => {
+
+                })
+            })
+        }
     });
 });
 
