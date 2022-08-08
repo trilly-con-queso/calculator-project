@@ -3,6 +3,9 @@
 let dispText = '0';
 let firstOp;
 let secondOp;
+let opr;
+let answer;
+
 
 /* Calculator Divs */
 const calDiv = document.createElement('div');
@@ -35,7 +38,7 @@ const nineBtn = document.createElement('div');
 /* Function Buttons */
 const acBtn = document.createElement('div');
 const negBtn = document.createElement('div');
-const remainderBtn = document.createElement('div');
+const centsBtn = document.createElement('div');
 const equalBtn = document.createElement('div');
 const decBtn = document.createElement('div');
 
@@ -78,7 +81,7 @@ equalBtn.classList.add('btn');
 
 /* HTML Function Button Classes */
 acBtn.classList.add('btn', 'funcBtn');
-remainderBtn.classList.add('btn', 'funcBtn');
+centsBtn.classList.add('btn', 'funcBtn');
 decBtn.classList.add('btn', 'funcBtn');
 negBtn.classList.add('btn', 'funcBtn');
 /* ------------------------------HTML Layout------------------------------ */
@@ -97,7 +100,7 @@ btnDiv.appendChild(operatorsDiv);
 /* HTML Number Buttons Layout */
 numsDiv.appendChild(acBtn);
 numsDiv.appendChild(negBtn);
-numsDiv.appendChild(remainderBtn);
+numsDiv.appendChild(centsBtn);
 numsDiv.appendChild(sevenBtn);
 numsDiv.appendChild(eightBtn);
 numsDiv.appendChild(nineBtn);
@@ -291,7 +294,7 @@ nineBtn.textContent = '9';
 decBtn.textContent = '.';
 acBtn.textContent = 'A/C';
 negBtn.textContent = '+/-';
-remainderBtn.textContent = '%';
+centsBtn.textContent = '%';
 addBtn.textContent = '+';
 subBtn.textContent = '-';
 multBtn.textContent = 'x';
@@ -311,7 +314,17 @@ numBtns.forEach(numBtn => {
             dispText = dispText.substring(1) + numBtn.textContent;
         } else if (dispText === '0') {
             dispText = numBtn.textContent;
-        } else dispText += numBtn.textContent;
+        } else if (answer != null) {
+            dispText = numBtn.textContent;
+            answer = null;
+        } else if (firstOp != null && secondOp == null) {
+            dispText = numBtn.textContent;
+            secondOp = numBtn.textContent;
+        } else if (firstOp != null && secondOp != null) {
+            secondOp += numBtn.textContent;
+            dispText = secondOp;
+        } else
+            dispText += numBtn.textContent;
         displayNums.textContent = dispText;
     });
 });
@@ -319,31 +332,108 @@ numBtns.forEach(numBtn => {
 opBtns.forEach(opBtn => {
     opBtn.addEventListener('click', () => {
         if (dispText == '0') {
-            dispText = '0'
-        } if (firstOp == null && dispText != null) {
+        } else if (firstOp == null && dispText != null) {
             firstOp = dispText;
-            numBtns.forEach(numBtn => {
-                numBtn.addEventListener(click, () => {
-
-                })
-            })
+            opr = opBtn.textContent;
+        } else if (firstOp != null && secondOp != null) {
+            dispText = operate(firstOp, secondOp, opr);
+            displayNums.textContent = dispText;
+            opr = opBtn.textContent
+            firstOp = dispText;
+            secondOp = null;
         }
     });
+});
+
+equalBtn.addEventListener('click', () => {
+    if (firstOp == null || secondOp == null) {
+
+    } else if (operate(firstOp, secondOp, opr).length > 10) {
+        answer = 'Err.TooLong';
+        displayNums.textContent = answer;
+        firstOp = null;
+        secondOp = null;
+    } else if (operate(firstOp, secondOp, opr).length <= 10) {
+        answer = operate(firstOp, secondOp, opr);
+        displayNums.textContent = answer;
+        firstOp = null;
+        secondOp = null;
+    }
+});
+
+acBtn.addEventListener('click', () => {
+    dispText = '0';
+    answer = null;
+    firstOp = null;
+    secondOp = null;
+    opr = null;
+    displayNums.textContent = '0';
+});
+
+negBtn.addEventListener('click', () => {
+    if (dispText === '0') {
+    } else if (dispText != '0' && secondOp != null) {
+        displayNums.textContent = -(displayNums.textContent);
+        dispText = displayNums.textContent;
+        secondOp = dispText
+    } else if (dispText != '0') {
+        displayNums.textContent = -(displayNums.textContent);
+        dispText = displayNums.textContent;
+    }
+});
+
+centsBtn.addEventListener('click', () => {
+    centsRem = displayNums.textContent.replace('.', '');
+    if (displayNums.textContent === '0') {
+    } else if (displayNums.textContent != '0') {
+        if (displayNums.textContent.includes('.')) {
+            displayNums.textContent = centsRem;
+            dispText = centsRem;
+        } else if (displayNums.textContent.includes('.') == false) {
+            centsNum = displayNums.textContent.slice(0, -2) + '.' + displayNums.textContent.slice(-2);
+            displayNums.textContent = centsNum;
+            dispText = centsNum;
+        }
+    }
+});
+
+decBtn.addEventListener('click', () => {
+    decInd = displayNums.textContent.indexOf('.');
+    decRem = displayNums.textContent.substring(0, decInd);
+    if (secondOp != null) {
+        if (displayNums.textContent.includes('.')) {
+            displayNums.textContent = decRem;
+            dispText = decRem;
+            secondOp = dispText;
+        } else if (displayNums.textContent.includes('.') == false) {
+            displayNums.textContent = displayNums.textContent + '.';
+            dispText = displayNums.textContent;
+            secondOp = dispText;
+        }
+    } else if (secondOp == null) {
+        if (displayNums.textContent.includes('.')) {
+            displayNums.textContent = decRem;
+            dispText = decRem;
+        } else if (displayNums.textContent.includes('.') == false) {
+            displayNums.textContent = displayNums.textContent + '.';
+            dispText = displayNums.textContent;
+        }
+    }
 });
 
 /* Operator Selection Function for Calculator */
 function operate(a, b, operator) {
     switch (operator) {
-        case '+': return add(a, b);
+        case '+': return ('' + add(a, b));
             break;
 
-        case '-': return subtract(a, b);
+        case '-': return ('' + subtract(a, b));
             break;
 
-        case '/': return divide(a, b);
+        case '/': return ('' + divide(a, b));
             break;
 
-        case '*': return multiply(a, b);
+        case 'x': return ('' + multiply(a, b));
             break;
     }
 };
@@ -351,7 +441,8 @@ function operate(a, b, operator) {
 
 
 /* Operator Functions */
-let add = (a, b) => a + b;
+let add = (a, b) => parseFloat(a) + parseFloat(b);
 let subtract = (a, b) => a - b;
 let divide = (a, b) => a / b;
 let multiply = (a, b) => a * b;
+
